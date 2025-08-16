@@ -2,7 +2,7 @@
 # *Overview*
 Project repo to demonstrate data streaming & data consuming using Kafka. Data streaming is displayed into web in real time using Streamlit.
 # *Project FLow*
-1. Prequsition
+1. Prerequsition
    - kafka service active on localhost:9092, topic defined: new-events  # change with your topic
      ```bash
      sudo systemctl status kafka
@@ -40,6 +40,17 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
             print(f"Sent: {json_data} to topic '{record_metadata.topic}' partition {record_metadata.partition} offset {record_metadata.offset}")
      ```
 5. Data displaying
-   - streamlit code to consume data streaming from kafka into kafka-consumer,
+   - streamlit code to consume data streaming from kafka into kafka-consumer
+     ```bash
+     python3 kafka_display.py
+     ```
+     ```python3
+     # import necessary library
+      import streamlit as st
+      import json
+      from kafka import KafkaConsumer
+      import pandas as pd
+      import time
+     ```
    - using pandas dataframe to create table to be displayed into web through streamlit
 7. Fix the code following error messages
