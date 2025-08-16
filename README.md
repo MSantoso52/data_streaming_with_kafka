@@ -73,5 +73,16 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
       st.title("Kafka Real-time Customer Purchase Data Stream")
       st.markdown("This application displays data streamed from the Kafka topic `new-events`.")
      ```
+     ```python3
+     # Initialize Kafka Consumer
+        consumer = KafkaConsumer(
+            KAFKA_TOPIC,
+            bootstrap_servers=[KAFKA_BROKER],
+            auto_offset_reset='latest',  # Start consuming from the latest message
+            enable_auto_commit=True,
+            group_id='streamlit-consumer-group',
+            value_deserializer=lambda x: json.loads(x.decode('utf-8'))
+        )
+     ```
    - using pandas dataframe to create table to be displayed into web through streamlit
 7. Fix the code following error messages
