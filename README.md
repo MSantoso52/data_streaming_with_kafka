@@ -33,6 +33,12 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
             value_serializer=lambda v: json.dumps(v).encode('utf-8') # Serialize dict to JSON bytes
         )
      ```
+     ```python3
+     # Send the JSON data to the Kafka topic
+            future = producer.send(KAFKA_TOPIC, value=customer_data)
+            record_metadata = future.get(timeout=10) # Block until a result is received, 10s timeout
+            print(f"Sent: {json_data} to topic '{record_metadata.topic}' partition {record_metadata.partition} offset {record_metadata.offset}")
+     ```
 5. Data displaying
    - streamlit code to consume data streaming from kafka into kafka-consumer,
    - using pandas dataframe to create table to be displayed into web through streamlit
