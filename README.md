@@ -52,5 +52,15 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
       import pandas as pd
       import time
      ```
+     ```python3
+     # --- Configuration (matching data_streaming.py) ---
+      KAFKA_BROKER = 'localhost:9092'  # Ensure this matches your Kafka broker address
+      KAFKA_TOPIC = 'new-events'    # Ensure this matches the topic from data_streaming.py
+
+     # --- Streamlit Application ---
+      st.set_page_config(page_title="Kafka Real-time Data Stream", layout="wide")
+      st.title("Kafka Real-time Customer Purchase Data Stream")
+      st.markdown("This application displays data streamed from the Kafka topic `new-events`.")
+     ```
    - using pandas dataframe to create table to be displayed into web through streamlit
 7. Fix the code following error messages
