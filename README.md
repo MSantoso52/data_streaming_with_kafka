@@ -39,6 +39,17 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
             record_metadata = future.get(timeout=10) # Block until a result is received, 10s timeout
             print(f"Sent: {json_data} to topic '{record_metadata.topic}' partition {record_metadata.partition} offset {record_metadata.offset}")
      ```
+     ```python3
+      # Initialize Kafka Consumer
+        consumer = KafkaConsumer(
+            KAFKA_TOPIC,
+            bootstrap_servers=[KAFKA_BROKER],
+            auto_offset_reset='latest',  # Start consuming from the latest message
+            enable_auto_commit=True,
+            group_id='streamlit-consumer-group',
+            value_deserializer=lambda x: json.loads(x.decode('utf-8'))
+        )
+     ```
 5. Data displaying
    - streamlit code to consume data streaming from kafka into kafka-consumer
      ```bash
