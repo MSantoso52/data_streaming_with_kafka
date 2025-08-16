@@ -85,4 +85,8 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
         )
      ```
    - using pandas dataframe to create table to be displayed into web through streamlit
+     ```python3
+      # Convert the list of dictionaries to a Pandas DataFrame for better display
+            df = pd.DataFrame(all_data)
+     ```
 7. Fix the code following error messages
