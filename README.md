@@ -19,6 +19,20 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
      from datetime import datetime
      from kafka import KafkaProducer
      from faker import Faker
+     ```
+     ```python3
+     # --- Configuration ---
+      KAFKA_BROKER = 'localhost:9092'  # Replace with your Kafka broker address
+      KAFKA_TOPIC = 'new-events'    # Replace with your desired Kafka topic name
+      INTERVAL_SECONDS = 20           # in seconds
+     ```
+     ```python3
+     # Connect to kafka broker
+     producer = KafkaProducer(
+            bootstrap_servers=[KAFKA_BROKER],
+            value_serializer=lambda v: json.dumps(v).encode('utf-8') # Serialize dict to JSON bytes
+        )
+     ```
 5. Data displaying
    - streamlit code to consume data streaming from kafka into kafka-consumer,
    - using pandas dataframe to create table to be displayed into web through streamlit
