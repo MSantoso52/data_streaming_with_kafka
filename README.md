@@ -93,5 +93,6 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
       # Convert the list of dictionaries to a Pandas DataFrame for better display
             df = pd.DataFrame(all_data)
      ```
-7. Fix the code following error messages
+3. Fix the code following error messages
+4. Open stramlit in browser through: localhost:8051
 ![Streamlit screenshot](streamlit_display.png)
