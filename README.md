@@ -1,12 +1,16 @@
 # Data_Streaming_with_Kafka
+![Screenshot of a project interface](kafka_streamlit.jpg)
 # *Overview*
 Project repo to demonstrate data streaming & data consuming using Kafka. Data streaming is displayed into web in real time using Streamlit.
-# *Project FLow*
-1. Prerequsition
+# *Prerequsition*
+   To follow along this project need to available in your system:
    - kafka service active on localhost:9092, topic defined: new-events  # change with your topic
      ```bash
      sudo systemctl status kafka
-3. Data streamer
+     ```
+     ![Kafka screenshot](kafka_start.png)
+# *Project FLow*
+1. Data streamer
    - python3 code to autogenerate json data every 20 sec & stream into kafka-producer
      ```bash
      python3 datastreamer.py
@@ -50,7 +54,7 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
             value_deserializer=lambda x: json.loads(x.decode('utf-8'))
         )
      ```
-5. Data displaying
+2. Data displaying
    - streamlit code to consume data streaming from kafka into kafka-consumer
      ```bash
      python3 kafka_display.py
@@ -90,3 +94,4 @@ Project repo to demonstrate data streaming & data consuming using Kafka. Data st
             df = pd.DataFrame(all_data)
      ```
 7. Fix the code following error messages
+![Streamlit screenshot](streamlit_display.png)
